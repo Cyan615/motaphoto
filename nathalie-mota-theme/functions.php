@@ -21,10 +21,16 @@ function mota_register_scripts(){
     wp_enqueue_style('style', get_stylesheet_uri() , array(),'1.0.0');
 
 }
+// Les menus du theme
+function mota_register_menu(){
+    register_nav_menu( 'main-menu', 'Menu Principal');
+    register_nav_menu( 'footer', 'Bas de page');
+}
 
 
 
 add_action('after_setup_theme', 'mota_setup');
-
 add_action('after_setup_theme', 'mota_register_scripts');
+add_action( 'init', 'mota_register_menu' );
+
 
